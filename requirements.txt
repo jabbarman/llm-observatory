@@ -4,7 +4,7 @@ datasets
 accelerate
 peft
 sentencepiece
-faiss-cpu
+faiss-cpu==1.7.4
 numpy
 pandas
 scikit-learn

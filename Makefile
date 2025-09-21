@@ -2,6 +2,7 @@
 
 setup:
 	@echo "Setting up environment..."
+	python -m pip install -U pip setuptools wheel
 	pip install -r requirements.txt
 
 train-tiny:
