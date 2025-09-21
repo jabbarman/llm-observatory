@@ -1,0 +1,12 @@
+torch
+transformers
+datasets
+accelerate
+peft
+sentencepiece
+faiss-cpu
+numpy
+pandas
+scikit-learn
+wandb
+tensorboard
