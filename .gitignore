@@ -135,6 +135,7 @@ env.bak/
 venv.bak/
 .venv/
 *.env
+.venv311
 
 # Data
 data_raw/*
@@ -184,3 +185,6 @@ cython_debug/
 /httpRequests/
 # CodeStream ignored files
 /codestream.xml
+
+# TensorBoard logs
+runs/
