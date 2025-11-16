@@ -37,3 +37,16 @@ can break the PyTorch + NumPy compatibility guarantees we rely on.
 `tiny-train/log_demo.py` writes TensorBoard scalars into `./runs`, allowing you
 to confirm that TensorBoard receives data before starting expensive training
 jobs.
+
+## Data Ingestion
+Raw text dumps go inside `data_raw/` (each file should end in `.txt`). Once the
+files are in place run:
+
+```bash
+python scripts/data_ingest.py --input-dir data_raw --output-file data_clean/corpus.txt --lowercase
+```
+
+This normalizes whitespace, drops empty lines, (optionally) lowercases content,
+and writes the cleaned corpus to `data_clean/corpus.txt`. Run
+`python scripts/test_data_ingest.py` to smoke-test the ingestion logic on a
+small synthetic dataset.
