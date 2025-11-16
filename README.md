@@ -10,7 +10,30 @@ A hands-on lab to train, fine-tune, serve, and evaluate LLMs — from scratch to
 - Evaluate and interpret results
 
 ## Getting Started
-```bash
-git clone <repo-url>
-cd llm-observatory
-make setup
+The project targets **Python 3.11**. Using another version (for example, 3.12)
+can break the PyTorch + NumPy compatibility guarantees we rely on.
+
+1. Create and activate the local virtual environment:
+
+   ```bash
+   python3.11 -m venv .venv311
+   source .venv311/bin/activate
+   ```
+
+2. Install the dependencies while respecting the pinned NumPy/PyTorch versions:
+
+   ```bash
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt -c constraints.txt
+   ```
+
+3. Validate the environment and logging stack:
+
+   ```bash
+   python scripts/env_check.py
+   python tiny-train/log_demo.py
+   ```
+
+`tiny-train/log_demo.py` writes TensorBoard scalars into `./runs`, allowing you
+to confirm that TensorBoard receives data before starting expensive training
+jobs.
