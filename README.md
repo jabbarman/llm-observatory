@@ -50,3 +50,14 @@ This normalizes whitespace, drops empty lines, (optionally) lowercases content,
 and writes the cleaned corpus to `data_clean/corpus.txt`. Run
 `python scripts/test_data_ingest.py` to smoke-test the ingestion logic on a
 small synthetic dataset.
+
+## Tokenizer Training
+With `data_clean/corpus.txt` ready, train a SentencePiece BPE tokenizer:
+
+```bash
+python tokenizer/train_tokenizer.py --vocab-size 32000 --character-coverage 0.9995
+```
+
+Artifacts land in `tokenizer/spm.model` and `tokenizer/spm.vocab`. Run the
+smoke test via `python scripts/test_train_tokenizer.py` to verify the trained
+tokenizer can encode/decode sample text.
