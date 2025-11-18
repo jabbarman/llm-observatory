@@ -61,3 +61,20 @@ python tokenizer/train_tokenizer.py --vocab-size 32000 --character-coverage 0.99
 Artifacts land in `tokenizer/spm.model` and `tokenizer/spm.vocab`. Run the
 smoke test via `python scripts/test_train_tokenizer.py` to verify the trained
 tokenizer can encode/decode sample text.
+
+## Tokenized Shards
+After training the tokenizer, encode text datasets into chunked `.npz` shards:
+
+```bash
+python - <<'PY'
+from tokenizer.utils import SentencePieceBatchEncoder, save_token_shards
+from pathlib import Path
+
+encoder = SentencePieceBatchEncoder(Path("tokenizer/spm.model"))
+texts = ["example prompt", "another sample"]
+encoded = encoder.encode_batch(texts)
+save_token_shards(encoded, Path("data_clean/tokens"), shard_size=2)
+PY
+```
+
+Use `python scripts/test_tokenizer_utils.py` for a self-contained smoke test.
