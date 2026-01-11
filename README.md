@@ -43,12 +43,12 @@ Raw text dumps go inside `data_raw/` (each file should end in `.txt`). Once the
 files are in place run:
 
 ```bash
-python scripts/data_ingest.py --input-dir data_raw --output-file data_clean/corpus.txt --lowercase
+.venv311/bin/python scripts/data_ingest.py --input-dir data_raw --output-file data_clean/corpus.txt --lowercase
 ```
 
 This normalizes whitespace, drops empty lines, (optionally) lowercases content,
 and writes the cleaned corpus to `data_clean/corpus.txt`. Run
-`python scripts/test_data_ingest.py` to smoke-test the ingestion logic on a
+`.venv311/bin/python scripts/test_data_ingest.py` to smoke-test the ingestion logic on a
 small synthetic dataset.
 
 ## Tokenizer Training
