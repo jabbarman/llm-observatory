@@ -66,7 +66,7 @@ tokenizer can encode/decode sample text.
 After training the tokenizer, encode text datasets into chunked `.npz` shards:
 
 ```bash
-python - <<'PY'
+.venv311/bin/python - <<'PY'
 from tokenizer.utils import SentencePieceBatchEncoder, save_token_shards
 from pathlib import Path
 
@@ -77,4 +77,4 @@ save_token_shards(encoded, Path("data_clean/tokens"), shard_size=2)
 PY
 ```
 
-Use `python scripts/test_tokenizer_utils.py` for a self-contained smoke test.
+Use `.venv311/bin/python scripts/test_tokenizer_utils.py` for a self-contained smoke test.
