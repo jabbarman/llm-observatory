@@ -55,11 +55,11 @@ small synthetic dataset.
 With `data_clean/corpus.txt` ready, train a SentencePiece BPE tokenizer:
 
 ```bash
-python tokenizer/train_tokenizer.py --vocab-size 32000 --character-coverage 0.9995
+.venv311/bin/python tokenizer/train_tokenizer.py --vocab-size 32000 --character-coverage 0.9995
 ```
 
 Artifacts land in `tokenizer/spm.model` and `tokenizer/spm.vocab`. Run the
-smoke test via `python scripts/test_train_tokenizer.py` to verify the trained
+smoke test via `.venv311/bin/python scripts/test_train_tokenizer.py` to verify the trained
 tokenizer can encode/decode sample text.
 
 ## Tokenized Shards
